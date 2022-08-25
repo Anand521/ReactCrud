@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import { Button, Checkbox, Form } from 'semantic-ui-react'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function Create() {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [checkbox, setCheckbox] = useState(false);
+    let navigate=useNavigate();
     const postData = () => {
         axios.post(`https://630614ef697408f7edd23124.mockapi.io/dummyData
         `,{
             firstName,lastName,checkbox
-        })
-        console.log(firstName);
-        console.log(lastName);
-        console.log(checkbox);
+        }
+        )
+        navigate('/read')
+
+        
     }
     return (
         <div>
